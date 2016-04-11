@@ -1,7 +1,7 @@
 {
   "name": "ember-selenium-build",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Builds your ember app as a bunch of static pages with selenium",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -9,9 +9,12 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall"
+    "test": "ember try:testall",
+    "server-test": "mocha --recursive --compilers coffee:coffee-script/register",
+    "compile": "coffee --bare --compile --output lib/ src/",
+    "selenium-build": "npm run compile && ember selenium-build:build"
   },
-  "repository": "",
+  "repository": "https://github.com/foxnewsnetwork/ember-selenium-build",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -19,32 +22,55 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
+    "chai": "^3.5.0",
+    "coffee-script": "^1.10.0",
     "ember-ajax": "0.7.1",
     "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",
+    "ember-cli-autoprefixer": "0.6.0",
+    "ember-cli-bootstrap-sassy": "0.5.3",
+    "ember-cli-coffeescript": "1.13.2",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
+    "ember-cli-sass": "5.3.1",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-code-snippet": "1.2.1",
+    "ember-composable-helpers": "0.21.1",
     "ember-data": "^2.4.2",
+    "ember-data-fixture-adapter": "1.13.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
+    "ember-font-awesome": "2.1.0",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
+    "ember-truth-helpers": "1.2.0",
     "ember-try": "^0.2.2",
-    "loader.js": "^4.0.1"
+    "express": "^4.13.4",
+    "glob": "^4.5.3",
+    "loader.js": "^4.0.1",
+    "mocha": "^2.4.5",
+    "morgan": "^1.7.0",
+    "website": "git+https://gitlab.com/pisource/simwms.git#v0.1.4"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.6"
+    "chromedriver": "^2.21.2",
+    "ember-cli-babel": "^5.1.6",
+    "exists-sync": "0.0.3",
+    "fs-extra": "^0.26.7",
+    "lodash": "^4.10.0",
+    "rsvp": "^3.2.1",
+    "selenium-webdriver": "^2.53.1"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://foxnewsnetwork.github.io/ember-selenium-build"
   }
 }

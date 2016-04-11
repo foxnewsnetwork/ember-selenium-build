@@ -1,3 +1,8 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+{{#website-layout title="Ember Selenium Build"
+  navLinks=(append
+    (hash href="https://gitlab.com/foxnewsnetwork/ember-selenium-build" text="Gitlab")
+    (hash href="https://github.com/foxnewsnetwork/ember-selenium-build" text="Github"))
+  footLinks=(append
+    (hash href="https://simwms.pisources.com/#/assets" text="Assets"))}}
+  {{outlet}}
+{{/website-layout}}

@@ -1,0 +1,15 @@
+{{#website-docs
+  anchor="index"
+  sections=(append
+    (hash 
+      name="Getting Started" 
+      links=(append
+        (hash path="index" text="Introduction")
+        (hash path="install" text="Quick Start")
+        (hash path="reqs" text="Requirements")))
+    (hash
+      name="Usage"
+      links=(append
+        (hash path="usage" text="Usage"))))}}
+  {{outlet}}
+{{/website-docs}}

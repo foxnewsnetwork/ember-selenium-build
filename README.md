@@ -1,6 +1,19 @@
 # Ember-selenium-build
 
-This README outlines the details of collaborating on this Ember addon.
+A pre-render tool that builds a few pages of your ember app as a static site
+
+## Why You Need This?
+Especially if we already have ember fastboot?
+
+If you're using fastboot, you indeed don't need this. However, for the individual small-ish projects that don't demand setting up an entire back-end, this project is perfect
+
+## How?
+
+Run the commands
+```sh
+ember selenium-build:install
+ember selenium-build:build
+```
 
 ## Installation
 
