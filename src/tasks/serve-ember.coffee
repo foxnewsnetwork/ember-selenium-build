@@ -30,8 +30,6 @@ module.exports = Task.extend
         ui: @ui
         analytics: @analytics
         watchedDir: path.resolve(serverRoot)
-    else
-      throw new Error "Missing server! ember-selenium-build didn't install right"
 
     expressServer = new ExpressServer
       ui: @ui
@@ -39,12 +37,5 @@ module.exports = Task.extend
       watcher: watcher
       serverRoot: serverRoot
       serverWatcher: serverWatcher
-
-    # liveReloadServer = new LiveReloadServer
-    #   ui: @ui
-    #   analytics: @analytics
-    #   project: @project
-    #   watcher: watcher
-    #   expressServer: expressServer
 
     expressServer.start(options)
