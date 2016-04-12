@@ -1,13 +1,13 @@
 /*jshint node:true*/
 module.exports = function(app) {
-  var seleniumBrowser = require("ember-selenium-build").instance();
+  var seleniumBrowser = require("ember-selenium-build");
   var express = require('express');
   var seleniumBuildRouter = express.Router();
 
   // informs the server the app has loaded
-  seleniumBuildRouter.get('/', function(req, res) {
+  seleniumBuildRouter.get('/:id', function(req, res) {
     if (typeof seleniumBrowser !== "undefined" && seleniumBrowser !== null) {
-      seleniumBrowser.begin();
+      seleniumBrowser.capture(req.params.id);
     }
     res.send({
       'selenium-build': []

@@ -33,7 +33,7 @@ class Machine
       instance = new Machine(driver, baseURI, routes, outPath)
 
   constructor: (@driver, @baseURI, @routes, outPath) ->
-    @writer = new Writer(@outPath)
+    @writer = new Writer(outPath)
 
   write: (string) -> @writer.write(string)
 

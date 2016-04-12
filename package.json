@@ -7,11 +7,14 @@
     "test": "tests"
   },
   "scripts": {
+    "prepublish": "npm run compile",
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:testall",
-    "server-test": "mocha --recursive --compilers coffee:coffee-script/register",
-    "compile": "coffee --bare --compile --output lib/ src/",
+    "server-test": "npm run compile && mocha --recursive --compilers coffee:coffee-script/register",
+    "compile-coffee": "coffee --bare --compile --output lib/ src/",
+    "compile-live": "lsc -bco lib/ src/",
+    "compile": "npm run compile-coffee && npm run compile-live",
     "selenium-build": "npm run compile && ember selenium-build:build"
   },
   "repository": "https://github.com/foxnewsnetwork/ember-selenium-build",
@@ -52,6 +55,7 @@
     "ember-try": "^0.2.2",
     "express": "^4.13.4",
     "glob": "^4.5.3",
+    "livescript": "^1.4.0",
     "loader.js": "^4.0.1",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",

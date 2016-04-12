@@ -1,7 +1,9 @@
-startSelenium = require "./start"
-startServer = require "./serve"
+StartBrowser = require "./start-browser"
+ServeEmber = require "./serve-ember"
 Task = require 'ember-cli/lib/models/task'
 {merge} = require 'lodash/object'
+RSVP = require 'rsvp'
+assign = require('lodash/assign');
 
 # From https://github.com/ember-cli/ember-cli/blob/master/lib/commands/serve.js
 #  availableOptions: [
@@ -22,18 +24,29 @@ Task = require 'ember-cli/lib/models/task'
 # ],
 
 serverOpts =
-  port: 4200
   insecureProxy: false
   watcher: "events"
   liveReload: false
   ssl: false
   sslKey: "ssl/server.key"
-  sslCert: "ssl/server.crt" 
+  sslCert: "ssl/server.crt"
 
 module.exports = Task.extend
-  run: (opts) ->
-    startSelenium.run(opts)
-    .then (selenium) ->
-      startServer.run(merge serverOpts, opts)
-      .then ->
-        selenium.finishBuild()
+  run: (browserOptions) ->
+    start = new StartBrowser
+      ui: @ui
+      analytics: @analytics
+      project: @project
+    serve = new ServeEmber
+      ui: @ui
+      analytics: @analytics
+      project: @project
+
+    commandOptions = assign serverOpts, browserOptions,
+      baseURL: @project.config(browserOptions.environment).baseURL || '/'
+
+    RSVP.hash
+      browser: start.run(browserOptions)
+      server: serve.run(commandOptions)
+    .then ({browser}) ->
+      browser.buildPages()
