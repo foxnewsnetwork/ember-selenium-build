@@ -19,7 +19,7 @@ class Page
     @driver.executeAsyncScript script
 
   pageURL: ->
-    "http://" + path.join @baseURL, @route
+    "http://" + path.join(@baseURL, @route)
 
   capture: ->
     @driver.get @pageURL()

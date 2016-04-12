@@ -26,6 +26,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "chai": "^3.5.0",
+    "chai-files": "^1.2.0",
     "coffee-script": "^1.10.0",
     "ember-ajax": "0.7.1",
     "ember-cli": "2.4.3",
@@ -62,7 +63,12 @@
     "website": "git+https://gitlab.com/pisource/simwms.git#v0.1.4"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "render",
+    "prerender",
+    "static",
+    "html",
+    "pages"
   ],
   "dependencies": {
     "chromedriver": "^2.21.2",

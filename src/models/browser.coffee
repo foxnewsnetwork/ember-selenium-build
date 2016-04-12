@@ -31,11 +31,10 @@ class Browser
       Browser.instance = new Browser(driver, host, port, routes, writer)
 
   constructor: (@driver, @host, @port, @routes, @writer) ->
-    @baseURI = if @port is 80 then @host else "#{@host}:#{@port}"
+    @baseURL = if @port is 80 then @host else "#{@host}:#{@port}"
 
   buildPages: ->
     asyncMap @routes, @buildPage.bind(@)
-    .finally => @quit()
 
   quit: -> @driver.quit()
   
@@ -44,6 +43,6 @@ class Browser
       driver: @driver
       route: route
       writer: @writer
-      baseURI: @baseURI
+      baseURL: @baseURL
 
 module.exports = Browser

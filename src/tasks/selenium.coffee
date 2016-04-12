@@ -50,3 +50,4 @@ module.exports = Task.extend
       server: serve.run(commandOptions)
     .then ({browser}) ->
       browser.buildPages()
+      .then -> browser.quit()

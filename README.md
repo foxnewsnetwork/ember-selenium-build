@@ -11,7 +11,6 @@ If you're using fastboot, you indeed don't need this. However, for the individua
 
 Run the commands
 ```sh
-ember selenium-build:install
 ember selenium-build:build
 ```
 
@@ -28,9 +27,7 @@ ember selenium-build:build
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+* `npm run server-test`
 
 ## Building
 

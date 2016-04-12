@@ -31,7 +31,7 @@ FlavorOpt =
 HostOpt =
   name: "host"
   type: String
-  default: "localhost:4200"
+  default: "localhost"
 
 PortOpt =
   name: "port"
