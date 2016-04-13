@@ -1,5 +1,6 @@
 # Ember-selenium-build
 
+[demo site](https://foxnewsnetwork.gitlab.io/ember-selenium-build/)
 A pre-render tool that builds a few pages of your ember app as a static site
 
 ## Why You Need This?

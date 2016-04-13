@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prepublish": "npm run compile",
-    "deploy": "npm run selenium-build && ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist",
+    "deploy": "npm run selenium-build && ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist && git push origin pages",
     "build": "echo 'nothing to do'",
     "start": "ember server",
     "test": "ember try:testall",
