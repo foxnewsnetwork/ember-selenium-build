@@ -45,9 +45,9 @@ module.exports = Task.extend
     commandOptions = assign serverOpts, browserOptions,
       baseURL: @project.config(browserOptions.environment).baseURL || '/'
 
-    RSVP.hash
-      browser: start.run(browserOptions)
-      server: serve.run(commandOptions)
-    .then ({browser}) ->
+    serve.run(commandOptions)
+    .then ->
+      start.run(browserOptions)
+    .then (browser) ->
       browser.buildPages()
       .then -> browser.quit()
