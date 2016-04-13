@@ -8,7 +8,8 @@
   },
   "scripts": {
     "prepublish": "npm run compile",
-    "build": "ember build",
+    "deploy": "ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist",
+    "build": "npm run compile && ember selenium-build:build",
     "start": "ember server",
     "test": "ember try:testall",
     "server-test": "npm run compile && mocha --recursive --compilers coffee:coffee-script/register",
@@ -50,6 +51,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
     "ember-font-awesome": "2.1.0",
+    "ember-gitlab-pages": "0.2.0",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-truth-helpers": "1.2.0",
