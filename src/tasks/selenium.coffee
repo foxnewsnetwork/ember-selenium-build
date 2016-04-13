@@ -42,12 +42,12 @@ module.exports = Task.extend
       analytics: @analytics
       project: @project
 
-    commandOptions = assign serverOpts, browserOptions,
+    options = assign serverOpts, browserOptions,
       baseURL: @project.config(browserOptions.environment).baseURL || '/'
 
-    serve.run(commandOptions)
+    serve.run(options)
     .then ->
-      start.run(browserOptions)
+      start.run(options)
     .then (browser) ->
       browser.buildPages()
       .then -> browser.quit()
