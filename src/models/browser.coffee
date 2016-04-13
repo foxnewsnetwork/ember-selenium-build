@@ -21,7 +21,7 @@ class Browser
   @setupDriver = (flavor) ->
     @setupBuilder(flavor).buildAsync()
     .then (driver) ->
-      driver.manage().timeouts().setScriptTimeout(7500)
+      driver.manage().timeouts().setScriptTimeout(60000)
       .then -> driver
 
   @initialize = ({flavor, outPath, routes, stdOut, host, port}) ->
