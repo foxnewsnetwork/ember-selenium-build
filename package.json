@@ -1,6 +1,6 @@
 {
   "name": "ember-selenium-build",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Builds your ember app as a bunch of static pages with selenium",
   "directories": {
     "doc": "doc",
