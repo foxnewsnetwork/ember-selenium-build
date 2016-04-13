@@ -1,0 +1,1 @@
+ember selenium-build:build && ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist

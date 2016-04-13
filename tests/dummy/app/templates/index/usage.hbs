@@ -10,3 +10,11 @@
 <p>Well, it's because this dummy app is apart of the test that ensures this app is working.</p>
 
 <p>In fact, this site is built with Ember, yet it's a static site and so will work even if you turn off your javascript!</p>
+
+<h4>Notice!</h4>
+
+<p>If you're using this with ember-cli-github-pages or similar, be aware that improperly forking the ember selenium-build:build process results in a ton of headache (which is why the acceptance test is skipped lol)</p>
+
+<p>Consider my current work-around solution of just changing my deployment command:</p>
+
+{{code-snippet name="-deploy.sh"}}

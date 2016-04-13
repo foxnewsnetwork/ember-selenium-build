@@ -8,8 +8,8 @@
   },
   "scripts": {
     "prepublish": "npm run compile",
-    "deploy": "ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist",
-    "build": "npm run compile && ember selenium-build:build",
+    "deploy": "npm run selenium-build && ember gitlab-pages:commit --npm-build=true --build-path=selenium-dist",
+    "build": "echo 'nothing to do'",
     "start": "ember server",
     "test": "ember try:testall",
     "server-test": "npm run compile && mocha --recursive --compilers coffee:coffee-script/register",
