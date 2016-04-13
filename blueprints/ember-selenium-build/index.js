@@ -1,7 +1,7 @@
 /*jshint node:true*/
 module.exports = {
-  description: 'Installs the mock file'
-
+  description: 'Installs the ember-selenium-build.js file',
+  normalizeEntityName: function() { }
   // locals: function(options) {
   //   // Return custom template variables here.
   //   return {
