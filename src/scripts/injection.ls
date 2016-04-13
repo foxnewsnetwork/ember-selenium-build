@@ -2,7 +2,7 @@
 # Lots of stuff taken from the ember inspector
 # https://github.com/emberjs/ember-inspector/blob/master/ember_debug/main.js
 
-exports.module = (..., callback) ->
+module.exports = (..., callback) ->
   Ember = null
   isBlank = null
   run = null
