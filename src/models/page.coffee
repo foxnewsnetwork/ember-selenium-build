@@ -1,4 +1,5 @@
 path = require 'path'
+url = require 'url'
 script = require '../scripts/injection'
 
 calculateFilename = (route) ->
@@ -13,13 +14,17 @@ class Page
     @activePage = new Page(opts)
     @activePage.capture()
 
-  constructor: ({@driver, @route, @writer, @baseURL}) ->
+  constructor: ({@driver, @route, @writer, @baseURL, @port, @host}) ->
 
   injectEmberReadyScript: ->
     @driver.executeAsyncScript script
 
   pageURL: ->
-    "http://" + path.join(@baseURL, @route)
+    url.format
+      hostname: @host
+      port: @port
+      pathname: path.join(@baseURL, @route)
+      protocol: "http"
 
   capture: ->
     @driver.get @pageURL()

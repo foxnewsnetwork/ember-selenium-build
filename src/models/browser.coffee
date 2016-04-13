@@ -26,14 +26,13 @@ class Browser
       driver.manage().timeouts().pageLoadTimeout(60000)
       .then -> driver
 
-  @initialize = ({flavor, outPath, routes, stdOut, host, port}) ->
+  @initialize = ({flavor, outPath, baseURL, routes, stdOut, host, port}) ->
     @setupDriver flavor
     .then (driver) ->
       writer = new Writer base: outPath, stdout: stdOut
-      Browser.instance = new Browser(driver, host, port, routes, writer)
+      Browser.instance = new Browser({driver, baseURL, host, port, routes, writer})
 
-  constructor: (@driver, @host, @port, @routes, @writer) ->
-    @baseURL = if @port is 80 then @host else "#{@host}:#{@port}"
+  constructor: ({@driver, @baseURL, @host, @port, @routes, @writer}) ->
 
   buildPages: ->
     asyncMap @routes, @buildPage.bind(@)
@@ -46,5 +45,7 @@ class Browser
       route: route
       writer: @writer
       baseURL: @baseURL
+      host: @host
+      port: @port
 
 module.exports = Browser
