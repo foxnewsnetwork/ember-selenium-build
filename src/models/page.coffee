@@ -2,11 +2,6 @@ path = require 'path'
 url = require 'url'
 script = require '../scripts/injection'
 
-calculateFilename = (route) ->
-  endsInSlash = /\/$/
-  switch
-    when endsInSlash.exec(route)? then path.join(route, "index")
-    else route
 class Page
   @activePage = null
 
@@ -33,7 +28,7 @@ class Page
     .then =>
       @driver.getPageSource()
     .then (source) =>
-      @write(source).intoFile(calculateFilename @route)
+      @write(source).intoFile(@route)
 
   write: (string) -> 
     @writer.write(string)

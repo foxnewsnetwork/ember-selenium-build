@@ -15,6 +15,6 @@ class Writer
       content: @fileContents
 
   makeFileName: (name) ->
-    path.normalize path.join(@base, "#{name}.html")
+    path.normalize path.join(@base, name, "index.html")
 
 module.exports = Writer
