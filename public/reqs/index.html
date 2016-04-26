@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <base href="/ember-selenium-build/" />
-<meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/ember-selenium-build/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22ember-selenium-build%22%2C%22version%22%3A%22v0.1.3%22%7D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/ember-selenium-build/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22ember-selenium-build%22%2C%22version%22%3A%220.2.0+7b24e093%22%7D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
 
     <link rel="stylesheet" href="assets/vendor-57af878e3fd9c27e41d03ea9a4d87ab4.css" />
     <link rel="stylesheet" href="assets/dummy-c0ade6340677aebb153b8fc5672ef1aa.css" />
@@ -18,7 +18,7 @@
     
 
     <script src="assets/vendor-5dae951e83576632dd81546a67fb9f55.js"></script>
-    <script src="assets/dummy-118986f061567e055b080f4b93c8d64b.js"></script>
+    <script src="assets/dummy-8f7390091a2c9eadfb1d2eddb9c6e2c4.js"></script>
 
     
   
@@ -59,38 +59,28 @@
       <h4 class="mdl-component website-docs__item">Getting Started</h4>
 <a id="ember584" href="/ember-selenium-build/" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view">          Introduction
 </a><a id="ember585" href="/ember-selenium-build/install" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view">          Quick Start
-</a><a id="ember593" href="/ember-selenium-build/reqs" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view">          Requirements
+</a><a id="ember593" href="/ember-selenium-build/reqs" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view active">          Requirements
 </a>      <h4 class="mdl-component website-docs__item">Usage</h4>
-<a id="ember601" href="/ember-selenium-build/usage" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view active">          Usage
+<a id="ember594" href="/ember-selenium-build/usage" class="mdl-component__link website-docs__link mdl-button mdl-js-button ember-view">          Usage
 </a>  </aside>
   <main class="mdl-cell mdl-cell--9-col mdl-cell--8-col-tablet mdl-cell--6-col-phone website-docs__pages">
     <div class="website-docs__page-header">
-      <h3>Usage</h3>
+      <h3>Requirements</h3>
     </div>
-      <p>Run the build command with ember</p>
+      <p>You'll need to proper install the following</p>
 
-<pre id="ember610" class="ember-view hljs armasm"><span class="hljs-label">ember</span> <span class="hljs-keyword">selenium-build:build
-</span></pre>
+<pre id="ember610" class="ember-view hljs stata">npm install --<span class="hljs-keyword">save</span> chromedriver # <span class="hljs-string">"^2.21.2"</span>
+npm install --<span class="hljs-keyword">save</span> ember-<span class="hljs-keyword">cli</span>-babel # <span class="hljs-string">"^5.1.6"</span>
+npm install --<span class="hljs-keyword">save</span> exists-sync # <span class="hljs-string">"0.0.3"</span>
+npm install --<span class="hljs-keyword">save</span> fs-extra # <span class="hljs-string">"^0.26.7"</span>
+npm install --<span class="hljs-keyword">save</span> lodash # <span class="hljs-string">"^4.10.0"</span>
+npm install --<span class="hljs-keyword">save</span> rsvp # <span class="hljs-string">"^3.2.1"</span>
+npm install --<span class="hljs-keyword">save</span> selenium-webdriver # <span class="hljs-string">"^2.53.1"</span>
+</pre>
 
-<p>That's it!</p>
+<small>There is no blueprint to do this because ember-selenium-build's version requirements are loose, whereas yours might be very tight</small>
 
-<h4>Why This Site?</h4>
-<p>By the way, in case you're wondering I bothered to write up a website for an explanation that can be done in just a README.markdown file in the project's github... </p>
-
-<p>Well, it's because this dummy app is apart of the test that ensures this app is working.</p>
-
-<p>In fact, this site is built with Ember, yet it's a static site and so will work even if you turn off your javascript!</p>
-
-<h4>Notice!</h4>
-
-<p>If you're using this with ember-cli-github-pages or similar, be aware that improperly forking the ember selenium-build:build process results in a ton of headache (which is why the acceptance test is skipped lol)</p>
-
-<p>Consider my current work-around solution of just changing my deployment command:</p>
-
-<pre id="ember611" class="ember-view hljs armasm"><span class="hljs-label">ember</span> <span class="hljs-keyword">selenium-build:build </span>&amp;&amp; ember gitlab-pages:commit --npm-<span class="hljs-keyword">build=true </span>--<span class="hljs-keyword">build-path=selenium-dist
-</span></pre>
-
-<p>Also, If ember server is taking too long to deploy, you may need to warm it up in your ram before running deploy</p>
+<p>*note: if you're using this with ember-cli-github-pages or ember-gitlab-pages, be aware you are no longer forced to depend on hash location type!</p>
 
   </main>
 </div>
