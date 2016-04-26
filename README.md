@@ -3,10 +3,28 @@
 [demo site](https://foxnewsnetwork.gitlab.io/ember-selenium-build/)
 A pre-render tool that builds a few pages of your ember app as a static site
 
-## Why You Need This?
-Especially if we already have ember fastboot?
+# Example:
+If you have a router that looks like:
 
-If you're using fastboot, you indeed don't need this. However, for the individual small-ish projects that don't demand setting up an entire back-end, this project is perfect
+```javascript
+Router.map(function(){
+  this.route("posts", {path: "/posts"}, function(){
+    this.route("new");
+  });
+  this.route("post", {path: "/post/:post_id"}, function() {
+    this.route("edit");
+  });
+  this.route("terms-of-service");
+});
+```
+Specify in your `ember-selenium-build.js` file what paths you want built:
+
+```javascript
+module.exports = ["/", "terms-of-service", "posts", "posts/new", "post/1", "post/1/edit"];
+```
+Notice that you're manually putting post ids like the worst of plebs. This is okay for small sites (e.g. your personal blog or portfolio which you promised yourself you'd update every week, but haven't written for since a year ago), but I personally advise you checkout [ember-fastboot](https://github.com/ember-fastboot/ember-cli-fastboot) if you have an actual web app that requires the full utilization of database, search, cache, etc., layers.
+
+As a general rule, if you can get away with just using fixture data for your ember app, this addon will be perfect for you.
 
 ## How?
 
